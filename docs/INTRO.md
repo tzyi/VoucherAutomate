@@ -17,17 +17,18 @@
 2. VoucherAutomate
   - Step 1 : 技術評估
   - Step 2 : 統一欄位中英文
-  - Step 3 : 抓取視窗，讓視窗在焦點上
-  - Step 4 : 使用pywinauto套件(單頭 head.py)
-  - Step 5 : 使用pywinauto套件(單身 body.py)
-  - Step 6 : 讀取Excel
-  - Step 7 : 串接步驟
+  - Step 3 : 建立CLAUDE.md
+  - Step 4 : 抓取視窗，讓視窗在焦點上
+  - Step 5 : 使用pywinauto套件(單頭 head.py)
+  - Step 6 : 使用pywinauto套件(單身 body.py)
+  - Step 7 : 讀取Excel
   - Step 8 : Bug Fixing與效能調整
   - Step 9 : Python的UI套件選擇
   - Step 10 : UI的設計
   - Step 11 : settings.py 設定檔
   - Step 12 : UI程式碼撰寫
-  - Step 13 : 更新文檔
+  - Step 13 : UI程式碼撰寫
+  - Step 14 : 更新文檔
   - 補充
   - 效益
 
@@ -93,8 +94,21 @@
 | 備註_明細 | line_note |
 
 
-## Step 3 : 抓取視窗，讓視窗在焦點上
+## Step 3 : 建立CLAUDE.md
+- 在專案中建立CLAUDE.md，CLAUDE.md是這個專案的工作準則，以後你做什麼任務他都會先讀這個CLAUDE.md，然後才會開始做任務。
+- CLAUDE.md的內容可以包含一些專案的背景、目標、以及一些重要的注意事項。以後實作過程中，發現有什麼重要的必做or不可做的事情，就可以直接更新CLAUDE.md，讓AI在執行任務前先讀取這些注意事項，避免他犯同樣的錯誤。
+```
+/init 我想用python的pywinauto套件來操控電腦與鍵盤
+我想讀取Excel傳票資料
+操作電腦與鍵盤將傳票資料輸入到鼎新的Smart ERP的會計系統(Windwos桌面應用程式)
+並且不能用座標的方式去點擊螢幕上的按鈕或是輸入文字
+```
+
+
+
+## Step 4 : 抓取視窗，讓視窗在焦點上
 - 這步驟是要讓程式先抓到視窗，並且讓這個視窗在焦點上，才不會出現程式在操作鍵盤的時候，卻去操作到其他視窗的狀況
+- 一種是截圖整個視窗然後執行下面的提示詞，如果沒抓到視窗，另一種是直接使用inspect.exe去抓取視窗資訊貼給AI，然後執行下面的提示詞
 ```
 幫我使用pywinauto套件
 去抓取會計傳票建立作業的視窗
@@ -102,7 +116,7 @@
 ```
 
 
-## Step 4 : 使用pywinauto套件(單頭 head.py)
+## Step 5 : 使用pywinauto套件(單頭 head.py)
 ![這裡放一張ERP畫面]()
 
 - 單頭的提示詞
@@ -124,7 +138,7 @@ python head.py
 
 
 
-## Step 5 : 使用pywinauto套件(單身 body.py)
+## Step 6 : 使用pywinauto套件(單身 body.py)
 ![這裡放一張ERP畫面]()
 
 - body.py是處理傳票中，只處理一筆明細的動作
@@ -169,7 +183,7 @@ log格式 : 2026-04-18 00:25:41,445 - INFO - 這裡是log訊息
 
 
 
-## Step 6 : 讀取Excel
+## Step 7 : 讀取Excel
 
 ![這裡放一張Excel畫面]()
 
@@ -236,7 +250,7 @@ log格式 : 2026-04-18 00:25:41,445 - INFO - 這裡是log訊息
 ```
 
 
-## Step 7 : 串接步驟
+## Step 8 : 串接步驟
 
 ```
 幫我寫一個main.py
@@ -259,7 +273,7 @@ for i in data:
 
 ```
 
-## Step 8 : Bug Fixing與效能調整
+## Step 9 : Bug Fixing與效能調整
 
 - 一開始在Claude Code中，使用Sonnet、Opus模型，不斷的描述哪個步驟有點慢，哪個步驟有點不穩定，但換了許多說法都無法改善
 - 後來想說如果讓AI先跳脫他寫的程式碼，跳出他原本的思維框架，所以選擇去Clade Chat再問一次我的問題，並選擇Opus模型
@@ -285,7 +299,7 @@ for i in data:
 讓執行總時間縮短，且不會有資料填錯的問題
 ```
 
-## Step 9 : Python的UI套件選擇
+## Step 10 : Python的UI套件選擇
 ```
 Python的UI套件有哪些？
 哪些UI比較美觀
@@ -294,7 +308,7 @@ Python的UI套件有哪些？
 - AI推薦了幾個Python的UI套件，看自己需求，以及看那些套件做出來的UI風格是否喜歡，來選擇適合的UI套件，最後選擇了PySide6
 
 
-## Step 10 : UI的設計
+## Step 11 : UI的設計
 - 目前使用AI工具設計UI畫面的常見工具有 : Figma、Google Stitch、Canva等，4/17 Claude還推出了一個新的UI設計工具叫做Claude Design，就根據自己的需求與喜好去選擇
 - 以下使用Google Stitch
 ```
@@ -322,7 +336,7 @@ UI要有兩個頁面
 - 將設計好的UI匯出，放到專案中
 
 
-## Step 11 : settings.py 設定檔
+## Step 12 : settings.py 設定檔
 - 把想設定的變數，獨立出來到settings.py檔案中
 - 以軟體工程的角度來說，這是一個好的習慣，另外等下UI寫提示詞時，我可以跟AI說設定的那個頁面就去讀取settings.py裡面的變數，這樣就不需要在UI的提示詞裡面重複說明一次要設定哪些變數了
 
@@ -336,7 +350,7 @@ UI要有兩個頁面
 
 
 
-## Step 12 : UI程式碼撰寫
+## Step 13 : UI程式碼撰寫
 - 開Opus模型，讓Claude去讀取剛剛匯出的UI設計
 ```
 請參考 @stitch_pyside6_excel_processor\
@@ -350,10 +364,10 @@ UI要有兩個頁面
 - 剩下就是不斷跟AI溝通，開始調整UI的細節，直到自己滿意為止
 
 
-## Step 13 : 更新文檔
-- 請AI幫你生成README.md的內容，把你專案的功能、使用方法、以及一些注意事項都寫清楚，讓其他人可以很快的上手你的專案
+## Step 14 : 更新文檔
+- 請AI幫你生成README.md、CLAUDE.md的內容，把你專案的功能、使用方法、以及一些注意事項都寫清楚，讓其他人可以很快的上手你的專案
 ```
-幫我更新README.md
+幫我更新README.md、CLAUDE.md的內容
 ```
 
 
