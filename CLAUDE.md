@@ -207,6 +207,24 @@ LOG_LEVEL = logging.DEBUG   # 詳細日誌（測試時用）
 LOG_LEVEL = logging.INFO    # 標準日誌（生產環境用）
 ```
 
+## Excel欄位名稱對應如下
+
+| 原中文 | 英文 |
+|--------|------|
+| 傳票單別 | voucher_type |
+| 傳票日期 | voucher_date |
+| 備註 | voucher_remark |
+| 明細 | lines |
+| 借/貸 | debit_credit |
+| 科目編號 | account_code |
+| 摘要 | description |
+| 部門 | dept_code |
+| 金額 | amount |
+| 專案代號 | project_code |
+| 備註_明細 | line_note |
+
+
+
 ## 常見開發工作流
 
 ### 添加新的傳票欄位
