@@ -430,7 +430,7 @@ Vibe Coding最怕就是撰寫新功能，結果把原本的功能給弄壞了。
 ![](./docs_img/traning_date.png)
 ![](docs_img\web_search.png)
 
-- 一樣的提示詞加上重要決策查證模式後，AI就會給出更全面的分析，特別風險的地方，馬上很清楚指明使用AutomationId是有風險的，可以讓我們避開這個風險。然後將AI這個回答丟回Claude Code。
+- 一樣的提示詞加上重要決策查證模式後，AI就會給出更全面的分析，特別風險的地方，馬上很清楚指明使用AutomationId是有風險的，可以讓我們避開這個風險。然後將AI這個回答丟回Claude Code，讓Claude Code寫程式時去更注意。
 ```
 使用pywinauto抓取UI元件時 
 用哪些資訊抓比較準確也快速抓取到UI?
