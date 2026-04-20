@@ -258,12 +258,12 @@ log格式 : 2026-04-18 00:25:41,445 - INFO - 這裡是log訊息
 read_excel.py，取得變數data，並可以讓使用者選取要哪個Excel檔案
 
 # step 2 抓取視窗，讓視窗在焦點上
-  執行 window.py
+執行 window.py
 
 for i in data:
 
   # step 3 輸入傳票頭部
-    執行 head.py --voucher_type i[voucher_type] --voucher_date i[voucher_date] --voucher_remark i[voucher_remark]
+  執行 head.py --voucher_type i[voucher_type] --voucher_date i[voucher_date] --voucher_remark i[voucher_remark]
 
   # step 4 輸入傳票明細
   for j in i[lines]:
@@ -288,7 +288,7 @@ for i in data:
 究竟是什麼情況會導致這情況?
 可以幫我讓執行時間變快且不會出錯嗎?
 ```
-- 然後我把AI回答一長串的解釋，貼到一個input_error.md檔案中，並回到Claude Code中，丟給他，使用Opus模型
+- 然後我把AI回答一長串的解釋，貼到一個新增的input_error.md檔案中，並回到Claude Code中，丟給他，使用Opus模型
 ![AI回答的畫面]()
 
 ```
