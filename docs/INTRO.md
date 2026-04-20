@@ -154,10 +154,10 @@ log格式 :
 
 以下是操作動作:
 1. 借貸(變數名稱 debit_credit，1代表借，2代表貸)
-鍵盤輸入數字(範例:1or2) -> 按下ENTER -> 並且sleep 1秒鐘(debit_credit_sleep=1)
+鍵盤輸入數字 -> 按下ENTER -> 並且sleep 1秒鐘(debit_credit_sleep=1)
 
 2. 科目編號(變數名稱 account_code)
-鍵盤輸入數字(範例:6214) -> 按下ENTER -> 並且sleep 1秒鐘(account_code_sleep=1)
+鍵盤輸入數字 -> 按下ENTER -> 並且sleep 1秒鐘(account_code_sleep=1)
 
 3. 摘要(變數名稱 description)
 若變數值是空字串，則不需要有動作，直接按下ENTER，sleep 1秒鐘(description_sleep=1)
@@ -165,10 +165,10 @@ log格式 :
 
 
 4. 部門(變數名稱 dept_code)
-鍵盤輸入數字(範例:000) -> 按下ENTER -> 並且sleep 1秒鐘(dept_code_sleep=1)
+鍵盤輸入數字 -> 按下ENTER -> 並且sleep 1秒鐘(dept_code_sleep=1)
 
 5. 金額(變數名稱 amount)
-鍵盤輸入數字(範例:999) -> 按下ENTER -> 並且sleep 1秒鐘(amount_sleep=1)
+鍵盤輸入數字 -> 按下ENTER -> 並且sleep 1秒鐘(amount_sleep=1)
 
 6. 專案代號(變數名稱 project_code)
 若變數值是空字串，則不需要有動作，直接按下ENTER，sleep 1秒鐘(project_code_sleep=1)
@@ -192,6 +192,7 @@ log格式 :
 寫一個read_excel.py
 幫我讀取AHT152-2.xlsx檔案裡面的資料
 並且欄位名稱中英文對應如下：
+
 | 原中文 | 英文 |
 |--------|------|
 | 傳票單別 | voucher_type |
@@ -292,6 +293,7 @@ step 4 body.py
 可以幫我讓執行時間變快且不會出錯嗎?
 ```
 - 然後我把AI回答一長串的解釋，貼到一個新增的input_error.md檔案中，並回到Claude Code中，丟給他，使用Opus模型
+
 ![AI回答的畫面]()
 
 ```
@@ -408,6 +410,12 @@ Vibe Coding最怕就是撰寫新功能，結果把原本的功能給弄壞了。
 
 ![](../img/intro.png)
 
+## PTT (Claude Design)
+```
+[貼上寫好的文件內容][PPT模板]
+幫我讀取文件內容，並且幫我利用PPT模板生成一份PPT
+目標觀眾是財務會計相關人員想學習運用AI來提升工作效率
+```
 
 
 
