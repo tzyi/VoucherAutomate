@@ -257,14 +257,20 @@ log格式 :
 ```
 幫我寫一個main.py，用呼叫的方式，按照順序呼叫下面的模組
 
-step 1 取得data
-read_excel.py，取得變數data，並可以讓使用者選取要哪個Excel檔案
+step 1 toolbar_btn.py
+抓取視窗，讓視窗在焦點上，並且點選好新增傳票的按鈕
 
-step 2 輸入傳票頭部
-head.py
 
-step 3 輸入傳票明細
-body.py
+step 2 read_excel.py
+讀取Excel，並可以讓使用者選取要哪個Excel檔案
+
+
+step 3 head.py
+輸入傳票頭部
+
+step 4 body.py
+輸入傳票明細
+
 
 ```
 
@@ -411,7 +417,8 @@ Vibe Coding最怕就是撰寫新功能，結果把原本的功能給弄壞了。
 ## 復盤
 
 ### AI有時給的非最佳解法或是資料過時
-- 有時AI給的方法，可能不是最新或是最適當的方法，應該要多問幾個AI，或是去查詢一下最新的資料。例如:抓取元件的的方法原本最推薦使用AutomationId，如圖，所以第一個判斷都先判斷AutomationId，但AI的此次回答都沒有說到可能應用程式(ERP)關閉重新打開後，AutomationId會變動，會導致程式抓不到元件，雖然AI寫的code好像也有處理AutomationId失效後繼續用其他方式，但不知道為何只要AutomationId失效，就會直接報錯，導致整個程式失敗。
+- 有時AI給的方法，可能不是最新或是最適當的方法，應該要多問幾個AI，或是去查詢一下最新的資料。<br>
+例如:抓取元件的的方法原本最推薦使用AutomationId，如圖，所以第一個判斷都先判斷AutomationId，但AI的此次回答都沒有說到可能應用程式(ERP)關閉重新打開後，AutomationId會變動，會導致程式抓不到元件，雖然AI寫的code好像也有處理AutomationId失效後繼續用其他方式，但不知道為何只要AutomationId失效，就會直接報錯，導致整個程式失敗。
 
 - 以下為原提示詞
 ```
@@ -449,12 +456,9 @@ Vibe Coding最怕就是撰寫新功能，結果把原本的功能給弄壞了。
 
 ## 下次想做的
 - Log Files功能<br>
-幫VoucherAutomate新增Log Files功能，以防電腦當機或是關機
+幫VoucherAutomate新增Log Files功能，以防電腦當機或是關機時，還可以從Log Files裡面看到之前的執行紀錄，並且可以知道哪一筆傳票哪一筆明細有問題，然後直接從那裡開始修正，而不需要從頭開始執行。
 - 入帳檢查功能<br>
 VoucherAutomate新增檢查功能，ERP匯出Excel，並可以跟原始Excel做比對，檢查出是否有入帳錯誤的地方
-- 效能優化<br>
-使用claude code的/review功能，讓AI幫你檢查程式碼的效能問題，並且給你優化建議
-
 
 - 財報回推明細帳<br>
 使用Cowork或是Claude for Excel讓AI幫你分析財報數字，並且回推明細帳資料
