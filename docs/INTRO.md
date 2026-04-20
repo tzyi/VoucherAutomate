@@ -18,7 +18,7 @@
   - Step 1 : 技術評估
   - Step 2 : 統一欄位中英文
   - Step 3 : 建立CLAUDE.md
-  - Step 4 : 抓取視窗，讓視窗在焦點上
+  - Step 4 : 抓取視窗，讓視窗在焦點上，並且點選好新增傳票的按鈕
   - Step 5 : 使用pywinauto套件(單頭 head.py)
   - Step 6 : 使用pywinauto套件(單身 body.py)
   - Step 7 : 讀取Excel
@@ -110,26 +110,26 @@
 - 這步驟是要讓程式先抓到視窗，並且讓這個視窗在焦點上，才不會出現程式在操作鍵盤的時候，卻去操作到其他視窗的狀況
 - 截圖整個視窗然後執行下面的提示詞
 ```
-[ERP的圖片]
+[ERP的圖片][新增傳票按鈕圖片]
 幫我使用pywinauto套件
-去抓取會計傳票建立作業的視窗
-讓這個視窗在焦點上
+去抓取會計傳票建立作業的視窗並點擊左上角新增傳票按鈕
 ```
 
 
 ## Step 5 : 使用pywinauto套件(單頭 head.py)
 ![這裡放一張ERP畫面]()
 
+- 因為一開始怕可能失敗也難debug，先將一次要做的功能切小塊一點，單頭跟單身分開做
 - 單頭的提示詞
 ```
+[ERP的單頭圖片]
 幫我寫一個head.py
 讓使用者可以傳入三個參數 : 傳票單別(voucher_type)、傳票日期(voucher_date)、傳票摘要(voucher_remark)
 並使用pywinauto套件操作ERP畫面
 以下是我的操作動作:
-1. 幫我鍵盤輸入F5(新增動作)
-2. 鍵盤輸入傳票單別(變數名稱 voucher_type ，範例:9101)，並按下Enter
-3. 鍵盤輸入傳票日期(變數名稱 voucher_date ，範例:20260420)，並按下Enter兩次
-4. 鍵盤輸入傳票摘要(變數名稱 voucher_remark ，範例:測試，但也可能是空值，則不需要有動作)，並按下Enter
+1. 鍵盤輸入傳票單別(變數名稱 voucher_type ，範例:9101)，並按下Enter
+2. 鍵盤輸入傳票日期(變數名稱 voucher_date ，範例:20260420)，並按下Enter兩次
+3. 鍵盤輸入傳票摘要(變數名稱 voucher_remark ，範例:測試，但也可能是空值，則不需要有動作)，並按下Enter
 ```
 - AI就會幫你生成pywinauto的程式碼，並告訴你執行的指令，直接複製貼上到終端機裡面執行，就可以看到python控制電腦的效果了
 
@@ -142,6 +142,7 @@
 
 - body.py是處理傳票中，只處理一筆明細的動作
 ```
+[ERP的單身圖片]
 幫我寫一個body.py
 讓使用者可以傳入七個參數 : 借貸(debit_credit)、科目編號(account_code)、摘要(description)、部門(dept_code)、金額(amount)、專案代號(project_code)、備註(line_note)
 使用pywinauto套件操作ERP畫面
@@ -251,25 +252,19 @@ log格式 :
 
 
 ## Step 8 : 串接步驟
+- 將上面所有步驟串接在一起
 
 ```
-幫我寫一個main.py
+幫我寫一個main.py，用呼叫的方式，按照順序呼叫下面的模組
 
-
-# step 1 取得data
+step 1 取得data
 read_excel.py，取得變數data，並可以讓使用者選取要哪個Excel檔案
 
-# step 2 抓取視窗，讓視窗在焦點上
-執行 window.py
+step 2 輸入傳票頭部
+head.py
 
-for i in data:
-
-  # step 3 輸入傳票頭部
-  執行 head.py --voucher_type i[voucher_type] --voucher_date i[voucher_date] --voucher_remark i[voucher_remark]
-
-  # step 4 輸入傳票明細
-  for j in i[lines]:
-    執行 body.py --debit_credit j[debit_credit] --account_code j[account_code] --description j[description] --dept_code j[dept_code] --amount j[amount] --project_code j[project_code] --line_note j[line_note]
+step 3 輸入傳票明細
+body.py
 
 ```
 
