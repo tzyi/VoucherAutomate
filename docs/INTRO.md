@@ -331,6 +331,8 @@ UI要有兩個頁面
 3. Execition區塊，請把Pause按鈕去除，Terminate改成Stop，並且Execute Job改成Execute。然後Execute跟Stop請並排
 4. 將Input Confuguration跟Execution區域高度縮減，讓下面顯示log的區塊高度增加
 ```
+![Google Stitch截圖]()
+
 - 將設計好的UI匯出，放到專案中
 
 
